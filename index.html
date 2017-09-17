@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>JS to Understand the Array elements</title>
+        <!-- HTML5 shim for IE8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+      <script src=“https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js”></script>
+    <![endif]-->
+</head>
+<!-- enabling button when the body is loaded -->
+<body onload="enableButton()";>
+<!-- Header -->
+<header>
+<h1> Assignment 6.2 </h1>
+</header>
+<!-- main section -->
+<main id="mainSection">
+<section id="subSection">
+<!-- div to place the button and giving action to it -->
+<div id="Div1"></div>
+<button onclick="myArray.forEach(myFunction)" id="btn1">Array Elements</button>
+<!-- Div2 for display purpose -->
+<div id="Div2"></div>
+</section>
+</main>
+<!-- javascipt starts here -->
+<script type="text/javascript">
+//global variables
+var myArray=[3,4,5,6,76,7,8];
+//calculating the length of an array
+var Len1=myArray.length;
+//display
+document.getElementById("Div1").innerHTML +="No. Of elements in array is "+Len1+" <br>";
+//initialising working variables
+var listArray="";
+var listvalue="";
+//Pushing 4 elements to array
+myArray.push(21,31,41,51);
+var Len2=myArray.length;
+document.getElementById("Div1").innerHTML +="No. Of elements in array after Push is "+Len2+" <br>";
+
+// check the number of inserterd or deleted elements
+
+var diff=Len2-Len1;
+//popping the pushed elements
+for (i=0;i<diff;i++)
+{
+myArray.pop();
+}
+///display
+document.getElementById("Div1").innerHTML +="No. Of elements in array popped is "+diff+" <br>";
+document.getElementById("Div1").innerHTML +="No. Of elements now present in Array is  "+myArray.length+" <br>";
+
+//function to extract the array from first to fourth index
+
+var newArray=myArray.slice(1,5);
+document.getElementById("Div1").innerHTML +="New Array after slicing the old Array to display the elements from first to fourth index "+newArray;
+
+var UList=document.createElement("ul");
+//function to display array elements using for each
+function myFunction(item,index){
+//displaying the existing array using Unnamed List
+listArray=document.createElement("li");
+listValue=document.createTextNode(item+" ");
+listArray.appendChild(listValue);
+UList.appendChild(listArray);
+document.getElementById("Div2").appendChild(UList);
+document.getElementById("btn1").disabled=true;
+}
+function enableButton()
+{
+document.getElementById("btn1").disabled=false;
+}
+</script>
+
+</body>
+</html>
